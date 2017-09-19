@@ -8,7 +8,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     axios.get('/api/movies')
-      // .then( res => this.setState({ movies: res.data }) )
+      .then( res => this.setState({ movies: res.data }) )
   }
 
   addMovie = (movie) => {
@@ -17,7 +17,6 @@ class Home extends React.Component {
   }
 
   render() {
-    // let { user: { uid } } = this.props;
     let { movies } = this.state;
 
     let moviePosts = movies.map( p => <Movie key={p.id} {...p} /> );

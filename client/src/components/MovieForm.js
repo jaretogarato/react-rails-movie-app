@@ -8,16 +8,9 @@ class MovieForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    // let data = new FormData();
-    // let { title, summary, file, release_year, stars, rank, genre, director } = this.state;
-    // data.append('title', title);
-    // data.append('summary', summary);
-    // data.append('release_year', release_year);
-    // data.append('stars', stars);
-    // data.append('rank', rank);
-    // data.append('genre', genre);
-    // data.append('director', director);
-    // data.append('img', file);
+    const { title, summary, release_year, stars, rank, genre, director, img_url } = this.state;
+    const { product } = this.props;
+
     axios.post('/api/movies', { movie: this.state })
       .then( res => {
         this.props.addPost(res.data)
@@ -30,9 +23,9 @@ class MovieForm extends React.Component {
     this.setState({ [name]: value })
   }
 
-  // onDrop = (files) => {
-  //   this.setState({ file: files[0] })
-  // }
+  onDrop = (files) => {
+    this.setState({ file: files[0] })
+  }
 
   render() {
     return (
@@ -102,12 +95,12 @@ class MovieForm extends React.Component {
             value={this.state.img_url}
             onChange={this.handleChange}
           />
-          {/* <Dropzone
+          <Dropzone
             style={{ border: 'dashed 1px black', width: '100%', height: '50px', marginBottom: '10px', textAlign: 'center' }}
             onDrop={this.onDrop}
           >
             Want to add an image?
-          </Dropzone> */}
+          </Dropzone>
           <Form.Button>Submit</Form.Button>
         </Form>
       </div>

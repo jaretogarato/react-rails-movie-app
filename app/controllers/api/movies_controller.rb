@@ -1,7 +1,8 @@
 class Api::MoviesController < ApplicationController
   def index
     # render json: Movie.select(:id, :title, :release_year, :director)
-    @api_movies = Movie.all
+    # @api_movies = Movie.all
+    render json: Movie.all
   end
 
   def show
@@ -11,7 +12,7 @@ class Api::MoviesController < ApplicationController
     @api_movie = Movie.new(api_movie_params)
 
     if @api_movie.save
-      render json: { id: @api_movie.id, img_url: @api_movie.img.url, title: @api_movie.title }
+      render json: { id: @api_movie.id, img_url: @api_movie.img_url, title: @api_movie.title }
     else
       render json: { errors: @api_movie.errors.full_messages }, status: 422
     end
