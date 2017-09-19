@@ -8,7 +8,7 @@ class Home extends React.Component {
 
   componentDidMount() {
     axios.get('/api/movies')
-      .then( res => this.setState({ movies: res.data }) )
+      // .then( res => this.setState({ movies: res.data }) )
   }
 
   addMovie = (movie) => {

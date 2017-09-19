@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import { Container } from 'semantic-ui-react';
 import Home from './components/Home';
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import logo from './assets/images/movie-reel.png'
 import './App.css';
-// import axios from 'axios';
+import axios from 'axios';
 
 
 class App extends Component {
@@ -15,11 +16,8 @@ class App extends Component {
           <h2>Mega Movies</h2>
         </div>
         <Container>
-          lalala
           <Home />
-
         </Container>
-
       </div>
     );
   }
